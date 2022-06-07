@@ -31,3 +31,35 @@ function numberOfOccurrencesInText(word, text) {
   });
   return wordCount;
 }
+
+function omitBadWords(text) {
+  const badWords = ["zoinks", "muppeteer", "biffaroni", "loopdaloop"];
+  let safeWords = [];
+  const wordArray = text.split(" ");
+
+  // go through each word in wordArray
+  wordArray.forEach(function(word) {
+    // assume it's not a bad word
+    let isBadWord = false;
+    // let isSafeWord = true;
+    
+    // go through each badWord in badWords
+    badWords.forEach(function(badWord) {
+      // if word matches any of the badWord
+      if (word.toLowerCase().includes(badWord.toLowerCase())) {
+        // we know it's a bad word if we get here
+        isBadWord = true;
+        // isSafeWord = false;
+      }
+    });
+
+    // if isBadWord is NOT true
+    if (!isBadWord) {
+    // if (isSafeWord) {
+      safeWords.push(word);
+    }
+  })
+  const result = safeWords.join(" ");
+  return result;
+}
+

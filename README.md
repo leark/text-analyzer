@@ -68,6 +68,31 @@ const word = "Red";
 numberOfOccurrencesInText(word, text);
 Expected Output: 3
 
+Describe: omitBadWords()
+
+Test: "It should return an empty string when single word is passed in."
+Code:
+const text = "";
+omitBadWords(text);
+Expected Output: "";
+
+Test: "It should return a string without a zoinks when single word is passed in."
+Code:
+const text = "zoinks";
+omitBadWords(text);
+Expected Output: "";
+
+Test: "It should return a string without a zoinks, muppeteer, biffaroni, and loopdaloop when single word is passed in."
+Code:
+const text = "zoinks" (or any of the other bad word);
+omitBadWords(text);
+Expected Output: "";
+
+Test: "It should return a string without a zoinks, muppeteer, biffaroni, and loopdaloop when a sentence is passed in."
+Code:
+const text = "zoinks got your nose biffaroni";
+omitBadWords(text);
+Expected Output: "got your nose";
 
 # Text Analyzer
 
