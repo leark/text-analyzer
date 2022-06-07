@@ -4,7 +4,7 @@ function wordCounter(text) {
   }
   
   let wordCount = 0;
-  const wordArray = text.split(" ");
+  const wordArray = text.trim().split(" ");
 
   wordArray.forEach(function(word) {
     // our initial solution was to use isNaN(word)
@@ -21,7 +21,7 @@ function numberOfOccurrencesInText(word, text) {
     return 0;
   }
 
-  const wordArray = text.split(" ");
+  const wordArray = text.trim().split(" ");
   let wordCount = 0;
 
   wordArray.forEach(function(element) {
@@ -63,3 +63,16 @@ function omitBadWords(text) {
   return result;
 }
 
+// UI Logic
+
+$(document).ready(function(){
+  $("form#word-counter").submit(function(event){
+    event.preventDefault();
+    const passage = $("#text-passage").val();
+    const word = $("#word").val();
+    const wordCount = wordCounter(passage);
+    const occurrencesOfWord = numberOfOccurrencesInText(word, passage);
+    $("#total-count").html(wordCount);
+    $("#selected-count").html(occurrencesOfWord);
+  });
+});
