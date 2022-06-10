@@ -83,8 +83,8 @@ function boldPassge(word, text) {
       // happenpenpen wil have only hap"pen"penpen bolded if looking for "pen"
     } else if (element.toLowerCase().includes(word.toLowerCase())) {
       let partBolded = '';
-      let start = element.indexOf(word);
-      let end = start + (word.length - 1);
+      const start = element.indexOf(word);
+      const end = start + (word.length - 1);
       // split element into individual letters
       element.split('').forEach(function (letter, index) {
         // if we reach the start of the word
